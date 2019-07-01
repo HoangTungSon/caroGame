@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>caroGame</title>
+</head>
+<body>
+<h3>Caro Game Simple</h3>
+<p id="carogame"/>
+<input type="button" value="Change Value" onclick="changeValue()">
+<script>
+    let b = document.getElementById("carogame");
+
+    // tạo bảng caro = mảng 2 chiều
+    let board = []; // tạo array
+    let data = ""; // tạo dữ liệu sẽ cho ra
+
+    // tạo dữ liệu 0,0,0,0,0
+    for (let i = 0; i < 5; i++) {
+        board[i] = [0, 0, 0, 0, 0];
+    }
+
+    // tạo mảng 2 chiều
+    for (let i = 0; i < 5; i++) {
+        data += "<br/>"; // xuống dòng
+        for (let j = 0; j < 5; j++) {
+            // tạo mảng với i cột và j hàng
+            data += board[i][j] + "&nbsp;&nbsp;";
+        }
+    }
+
+    // tạo nút
+    data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>";
+
+    // hiện bảng
+    b.innerHTML = data;
+
+    //hiện thị nhập liệu
+    function changeValue() {
+        let positionX = prompt("X: ");
+        let positionY = prompt("Y: ");
+        data = "";
+        board[positionX][positionY] = "x"; // giá trị sẽ hiện trên bàn cờ
+        for (let i = 0; i < 5; i++) {
+            data += "<br/>";
+            for (let j = 0; j < 5; j++) {
+                data += board[i][j] + "&nbsp;&nbsp;";
+            }
+        }
+        data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>";
+        b.innerHTML = "<hr/>" + data;
+    }
+
+</script>
+</body>
+</html>
